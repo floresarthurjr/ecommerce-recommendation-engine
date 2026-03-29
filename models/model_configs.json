@@ -1,7 +1,7 @@
 {
-  "champion_model": "Model 2: K-Means Cluster-Based",
+  "champion_model": "Model 5: XGBoost Ranker",
   "kmeans_k": 3,
-  "kmeans_silhouette": 0.5023,
+  "kmeans_silhouette": 0.181,
   "kmeans_features": [
     "Age",
     "Purchase Amount (USD)",
@@ -17,15 +17,20 @@
     "customer_maturity"
   ],
   "xgboost_params": {
-    "n_estimators": 200,
-    "max_depth": 5,
+    "n_estimators": 1000,
+    "max_depth": 7,
     "learning_rate": 0.1,
-    "scale_pos_weight": 24,
-    "random_state": 42
+    "subsample": 1.0,
+    "min_child_weight": 1
   },
+  "xgboost_scale_pos_weight": 24,
   "evaluation_metrics": {
     "primary_tollgate": "NDCG@10",
-    "champion_ndcg10": 0.1825
+    "champion_ndcg10": 0.176,
+    "champion_recall10": 0.39,
+    "champion_precision5": 0.041,
+    "baseline_ndcg10": 0.163,
+    "improvement_over_baseline": "7.9%"
   },
   "train_test_split": {
     "method": "demographic-stratified random",
